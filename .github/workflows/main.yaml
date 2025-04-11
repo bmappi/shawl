@@ -16,7 +16,7 @@ jobs:
             artifact-name: win64
           - rust-target: i686-pc-windows-msvc
             artifact-name: win32
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,15 +24,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.7'
-      - uses: mtkennerly/dunamai-action@v1
-        with:
-          env-var: DUNAMAI_VERSION
-          args: --style semver
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: stable-${{ matrix.rust-target }}
       - run: cargo build --release
-      
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -49,7 +41,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
       - run: cargo test -- --test-threads 1
 
   lint:
