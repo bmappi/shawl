@@ -28,14 +28,10 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: shawl
+          name: shawl-${{ matrix.artifact-name }}
           path: |
             target\release\shawl.exe
             target\release\shawl.pdb
-      - uses: actions/upload-artifact@v4
-        with:
-          name: shawl-v${{ env.DUNAMAI_VERSION }}-${{ matrix.artifact-name }}
-          path: target/release/shawl.exe
 
   test:
     runs-on: windows-latest
