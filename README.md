@@ -101,4 +101,4 @@ because Shawl doesn't have any special setup of its own.
 The `shawl add` command is just an optional convenience.
 
 ## Development
-Please refer to [CONTRIBUTING.md](CONTRIBUTING.md). 
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md).
